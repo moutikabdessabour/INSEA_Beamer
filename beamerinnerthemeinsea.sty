@@ -1,0 +1,95 @@
+\mode<presentation>
+\hyphenpenalty=100000
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamertemplate{items}[circle]
+\usebeamercolor[fg]{normal text}
+
+\definecolor{dg}{HTML}{018754}
+\definecolor{lg}{HTML}{79b695}
+\definecolor{wg}{HTML}{c4dcce}
+\setbeamertemplate{background}{
+\begin{tikzpicture}
+\pgfmathparse{\value{page}<23 &&\value{page}>1?int(1):int(0)}
+\ifnum \pgfmathresult>0\relax%
+% background for pages > 1 
+	%\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+\else 
+  % background for the title page
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  
+  \draw [dg]  ([xshift=4.33cm]current page.north west) .. controls ([xshift=4.17cm,yshift=-2.67cm]current page.north west) and  ([xshift=0.67cm,yshift=-3.33cm]current page.north west) .. ([yshift=-5.67cm]current page.north west);
+    \draw [dg] ([xshift=4.67cm]current page.north west) .. controls ([xshift=4.5cm,yshift=-2.67cm]current page.north west) and  ([xshift=0.67cm,yshift=-3.33cm]current page.north west) .. ([yshift=-6cm]current page.north west);
+    \draw [dg] ([xshift=5cm]current page.north west) .. controls ([xshift=4.83cm,yshift=-2.67cm]current page.north west) and  ([xshift=0.67cm,yshift=-3.33cm]current page.north west) .. ([yshift=-6.33cm]current page.north west);
+    \draw [dg] ([xshift=5.33cm]current page.north west) .. controls ([xshift=5.17cm,yshift=-2.67cm]current page.north west) and  ([xshift=0.67cm,yshift=-3.33cm]current page.north west) .. ([yshift=-6.67cm]current page.north west);
+    \draw [dg] ([xshift=5.67cm]current page.north west) .. controls ([xshift=5.5cm,yshift=-2.67cm]current page.north west) and  ([xshift=0.67cm,yshift=-3.33cm]current page.north west) .. ([yshift=-7cm]current page.north west);
+    \draw [dg] ([xshift=6cm]current page.north west) .. controls ([xshift=5.83cm,yshift=-2.67cm]current page.north west) and  ([xshift=0.67cm,yshift=-3.33cm]current page.north west) .. ([yshift=-7.33cm]current page.north west);
+    \draw [dg] ([xshift=6.33cm]current page.north west) .. controls ([xshift=6.17cm,yshift=-2.67cm]current page.north west) and  ([xshift=0.67cm,yshift=-3.33cm]current page.north west) .. ([yshift=-7.67cm]current page.north west);
+    \draw [dg]  ([xshift=6.67cm]current page.north west) .. controls ([xshift=6.5cm,yshift=-2.67cm]current page.north west) and  ([xshift=0.67cm,yshift=-3.33cm]current page.north west) .. ([yshift=-8cm]current page.north west);
+    \path [fill=dg] ([xshift=-4cm]current page.south east) .. controls ([xshift=-3.83cm,yshift=2.67cm]current page.south east) and  ([xshift=-0.67cm,yshift=3.33cm]current page.south east) .. ([yshift=5.33cm]current page.south east) -- (current page.south east) -- cycle;
+    \draw [dg] ([xshift=-4.33cm]current page.south east) .. controls ([xshift=-4.17cm,yshift=2.67cm]current page.south east) and  ([xshift=-0.67cm,yshift=3.33cm]current page.south east) .. ([yshift=5.67cm]current page.south east);
+    \draw [dg] ([xshift=-4.67cm]current page.south east) .. controls ([xshift=-4.5cm,yshift=2.67cm]current page.south east) and  ([xshift=-0.67cm,yshift=3.33cm]current page.south east) .. ([yshift=6cm]current page.south east);
+    \draw [dg] ([xshift=-5cm]current page.south east) .. controls ([xshift=-4.83cm,yshift=2.67cm]current page.south east) and  ([xshift=-0.67cm,yshift=3.33cm]current page.south east) .. ([yshift=6.33cm]current page.south east);
+    \draw [dg] ([xshift=-5.33cm]current page.south east) .. controls ([xshift=-5.17cm,yshift=2.67cm]current page.south east) and  ([xshift=-0.67cm,yshift=3.33cm]current page.south east) .. ([yshift=6.67cm]current page.south east);
+    \draw [dg] ([xshift=-5.67cm]current page.south east) .. controls ([xshift=-5.5cm,yshift=2.67cm]current page.south east) and  ([xshift=-0.67cm,yshift=3.33cm]current page.south east) .. ([yshift=7cm]current page.south east);
+    \draw [dg] ([xshift=-6cm]current page.south east) .. controls ([xshift=-5.83cm,yshift=2.67cm]current page.south east) and  ([xshift=-0.67cm,yshift=3.33cm]current page.south east) .. ([yshift=7.33cm]current page.south east);
+    \draw [dg] ([xshift=-6.33cm]current page.south east) .. controls ([xshift=-6.17cm,yshift=2.67cm]current page.south east) and  ([xshift=-0.67cm,yshift=3.33cm]current page.south east) .. ([yshift=7.67cm]current page.south east);
+    \draw [dg]  ([xshift=-6.67cm]current page.south east) .. controls ([xshift=-6.5cm,yshift=2.67cm]current page.south east) and  ([xshift=-0.67cm,yshift=3.33cm]current page.south east) .. ([yshift=8cm]current page.south east);
+    
+  % logo
+  \node[inner sep=0pt] (logo) at (\paperwidth-1.7cm,\paperheight-1cm){\includegraphics[width=1.6cm, angle=1, origin=c]{graphics/INSEA_logo_white.png}};
+
+  % line between institute and author
+    %\fill[color=white] (0,7.1) rectangle(\the\paperwidth,7.15);  
+               \node[align=center, text width=8.7cm, inner sep=1em, thin,draw=lg,fill=wg, rounded corners=1ex] at (7.25,4){
+            \large \scshape \color{dg} \inserttitle
+            } ;
+            \node[xshift=3ex, yshift=-1ex, overlay, fill=lg, draw=dg, above right, rounded corners=.3ex] at (3, 5) {
+            \textit{\large \color{white} Sujet:}
+            };
+\fi
+% in debug mode, show the grid
+
+	%\draw[help lines,xstep=1,ystep=1,gray] (current page.south west) grid (current page.north east);
+	
+         
+\end{tikzpicture}
+}
+
+% Title page
+% \sffamily added to \insertauthor,\insertdate and \insertinstitute
+
+\defbeamertemplate*{title page}{INSEA}[1][]
+{
+%\begin{textblock*}{10cm}(1cm,1.2cm)
+%{\color{dg}\usebeamerfont{author}\sffamily\fontseries{semibold}\selectfont\insertinstitute}
+%\end{textblock*}
+
+%\begin{textblock*}{10cm}(1cm,1.7cm)
+%{\usebeamercolor[fg]{title}\usebeamerfont{title}\inserttitle}
+%\end{textblock*}
+\begin{textblock*}{6cm}(.3\paperwidth, .2cm)
+{\centering\footnotesize\scshape Royaume du Maroc\\
+        Haut Commissariat au Plan\\
+        Institut National de Statistique \\et d’Économie Appliquée\\\hfill\color{lg} INSEA\hfill}
+\end{textblock*}
+\begin{textblock*}{10cm}(.5cm,0.75\paperheight)
+{\color{lg}\usebeamerfont{author}Présenté par :
+\\\sffamily\fontseries{semibold}\selectfont\insertauthor}
+\end{textblock*}
+\begin{textblock*}{10cm}(5cm,0.75\paperheight)
+{\color{lg}\usebeamerfont{author}Membres du jury:\\\sffamily\fontseries{semibold}\scshape\selectfont \insertsupervisor}
+\end{textblock*}
+
+\begin{textblock*}{10cm}(0.8\paperwidth,0.9\paperheight)
+{\usebeamercolor[fg]{author}\usebeamerfont{author}\sffamily\fontseries{semibold}\selectfont\insertdate}
+\end{textblock*}
+
+\begin{textblock*}{10cm}(.5cm,0.9\paperheight)
+{\color{lg}\usebeamerfont{institute}\insertinstitute}
+\end{textblock*}
+
+
+}
+
+\mode
+<all>
